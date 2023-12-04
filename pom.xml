@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>2.5</version>
+        <version>4.51</version>
         <relativePath />
     </parent>
 
@@ -27,12 +27,11 @@
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}-plugin.git
         </developerConnection>
         <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-      <tag>HEAD</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
-        <jenkins.version>2.63</jenkins.version>
-        <java.level>8</java.level>
+        <jenkins.version>2.346.3</jenkins.version>
         <jenkins-test-harness.version>2.2</jenkins-test-harness.version>
         <!-- Dependencies artifact version -->
         <aws-java-sdk-sqs.version>1.11.233</aws-java-sdk-sqs.version>
@@ -81,6 +80,17 @@
             <email>max@opsguru.io</email>
         </developer>
     </developers>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-weekly</artifactId>
+                <version>2612.v3d6a_2128c0ef</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
@@ -120,7 +130,6 @@
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>git</artifactId>
             <optional>true</optional>
-            <version>${git.version}</version>
         </dependency>
 
         <dependency>
@@ -139,7 +148,6 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>plain-credentials</artifactId>
-            <version>${plain-credentials.version}</version>
         </dependency>
 
         <dependency>
@@ -166,7 +174,6 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
